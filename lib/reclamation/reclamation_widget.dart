@@ -1,19 +1,20 @@
+import 'package:flutter/material.dart';
+
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 import 'package:smart_parking/FORMULAIRE/Form.dart';
-import 'package:smart_parking/FORMULAIRE/objets_perdu.dart';
 import 'package:smart_parking/FORMULAIRE/obejets_trouver.dart';
+import 'package:smart_parking/FORMULAIRE/objets_perdu.dart';
 import 'package:smart_parking/components/feed.dart';
 import 'package:smart_parking/ratepark/ratepark_widget.dart';
-
 
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class ReclamationWidget extends StatefulWidget {
-  const ReclamationWidget({Key key}) : super(key: key);
+  const ReclamationWidget({Key? key}) : super(key: key);
 
   @override
   _ReclamationWidgetState createState() => _ReclamationWidgetState();

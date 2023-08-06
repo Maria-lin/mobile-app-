@@ -1,17 +1,21 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class UserModel {
-  String name;
-  String mobileNumber;
-  String email;
-  Timestamp timestamp;
-  String uid;
+final  String name;
+final  String mobileNumber;
+final  String email;
+final  Timestamp timestamp;
+ final String uid;
   // bool isMale;
   // int age;
 
   // 2nd part
   UserModel(
-      {this.name, this.mobileNumber, this.email, this.timestamp, this.uid});
+      {required this.name,
+      required this.mobileNumber,
+      required this.email,
+      required this.timestamp,
+      required this.uid});
 
   //3rd creating map -- insert
   toMap() {

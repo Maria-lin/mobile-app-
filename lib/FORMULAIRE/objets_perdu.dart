@@ -1,3 +1,9 @@
+import 'package:flutter/material.dart';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 import 'package:smart_parking/FORMULAIRE/pop_up.dart';
 
 import '../auth/auth_util.dart';
@@ -7,10 +13,6 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../flutter_flow/upload_media.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'BRAVO.dart';
 
@@ -26,11 +28,11 @@ class _objetperdu extends State<forom3> {
       ' https://images.app.goo.gl/Go3HBa3KSeSjKh9C9';
 
 
-  TextEditingController textController1;
-  TextEditingController numtelController;
+  TextEditingController? textController1;
+  TextEditingController? numtelController;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  String _selectedLocation;
+  String? _selectedLocation;
   TextEditingController dateinput1= TextEditingController();
 
   @override
@@ -399,7 +401,7 @@ class _objetperdu extends State<forom3> {
                   ),
                   readOnly: true,  //set it true, so that user will not able to edit text
                   onTap: () async {
-                    DateTime pickedDate = await showDatePicker(
+                    DateTime? pickedDate = await showDatePicker(
                         context: context, initialDate: DateTime.now(),
                         firstDate: DateTime(2000), //DateTime.now() - not to allow to choose before today.
                         lastDate: DateTime(2101)
@@ -481,7 +483,7 @@ class _objetperdu extends State<forom3> {
                     padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        Map<String,dynamic>data={"commentaire ": textController1.text,"parking ": _selectedLocation,"date de perte": dateinput1.text,"numéro de tel ": numtelController.text
+                        Map<String,dynamic>data={"commentaire ": textController1?.text,"parking ": _selectedLocation,"date de perte": dateinput1.text,"numéro de tel ": numtelController?.text
                         };
                         FirebaseFirestore.instance.collection("declaration_objet_perdu").add(data);
                         // Validate will return true if the form is valid, or false if

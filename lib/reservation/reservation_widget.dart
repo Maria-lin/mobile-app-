@@ -1,3 +1,8 @@
+import 'package:flutter/material.dart';
+
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 import 'package:smart_parking/resevation/reservationavance.dart';
 
 import '../auth/auth_util.dart';
@@ -5,14 +10,10 @@ import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-
 import '../mapmain.dart';
 
 class ReservationWidget extends StatefulWidget {
-  const ReservationWidget({Key key}) : super(key: key);
+  const ReservationWidget({Key? key}) : super(key: key);
 
   @override
   _ReservationWidgetState createState() => _ReservationWidgetState();

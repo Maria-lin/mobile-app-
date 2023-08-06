@@ -1,4 +1,10 @@
+import 'package:flutter/material.dart';
+
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 import 'package:smart_parking/FORMULAIRE/feedback.dart';
 
 import '../auth/auth_util.dart';
@@ -10,13 +16,9 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../main/main_widget.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class ProfilePageWidget extends StatefulWidget {
-  const ProfilePageWidget({Key key}) : super(key: key);
+  const ProfilePageWidget({Key? key}) : super(key: key);
 
   @override
   _ProfilePageWidgetState createState() => _ProfilePageWidgetState();
@@ -97,7 +99,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                             ),
                             child: CachedNetworkImage(
                               imageUrl: valueOrDefault<String>(
-                                profilePageUsersRecord.photoUrl,
+                                profilePageUsersRecord!.photoUrl,
                                 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/e-drive-app-9va2oh/assets/ety73spsyaeb/avatar.png',
                               ),
                               fit: BoxFit.fitWidth,

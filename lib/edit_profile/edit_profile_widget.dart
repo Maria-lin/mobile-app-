@@ -1,3 +1,10 @@
+import 'package:flutter/material.dart';
+
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../backend/firebase_storage/storage.dart';
@@ -5,16 +12,11 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../flutter_flow/upload_media.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class EditProfileWidget extends StatefulWidget {
   const EditProfileWidget({
-    Key key,
-    this.userProfile,
+    Key? key,
+    required this.userProfile,
   }) : super(key: key);
 
   final DocumentReference userProfile;
@@ -25,10 +27,10 @@ class EditProfileWidget extends StatefulWidget {
 
 class _EditProfileWidgetState extends State<EditProfileWidget> {
   String uploadedFileUrl = '';
-  TextEditingController textController1;
-  TextEditingController numtelController1;
-  TextEditingController numtelController2;
-  TextEditingController numtelController3;
+ late  TextEditingController textController1;
+ late TextEditingController numtelController1;
+ late TextEditingController numtelController2;
+  late TextEditingController numtelController3;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -106,7 +108,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                               ),
                               child: CachedNetworkImage(
                                 imageUrl: valueOrDefault<String>(
-                                  editProfileUsersRecord.photoUrl,
+                                  editProfileUsersRecord!.photoUrl,
                                   'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/e-drive-app-9va2oh/assets/ety73spsyaeb/avatar.png',
                                 ),
                                 fit: BoxFit.fitWidth,
@@ -262,13 +264,13 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                             ),
                           );
                         }
-                        List<UsersRecord> numtelUsersRecordList = snapshot.data;
+                        List<UsersRecord>? numtelUsersRecordList = snapshot.data;
                         // Return an empty Container when the document does not exist.
-                        if (snapshot.data.isEmpty) {
+                        if (snapshot.data!.isEmpty) {
                           return Container();
                         }
                         final numtelUsersRecord =
-                            numtelUsersRecordList.isNotEmpty
+                            numtelUsersRecordList!.isNotEmpty
                                 ? numtelUsersRecordList.first
                                 : null;
                         return TextFormField(
@@ -345,13 +347,13 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                             ),
                           );
                         }
-                        List<UsersRecord> numtelUsersRecordList = snapshot.data;
+                        List<UsersRecord>? numtelUsersRecordList = snapshot.data;
                         // Return an empty Container when the document does not exist.
-                        if (snapshot.data.isEmpty) {
+                        if (snapshot.data!.isEmpty) {
                           return Container();
                         }
                         final numtelUsersRecord =
-                            numtelUsersRecordList.isNotEmpty
+                            numtelUsersRecordList!.isNotEmpty
                                 ? numtelUsersRecordList.first
                                 : null;
                         return TextFormField(
@@ -428,13 +430,13 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                             ),
                           );
                         }
-                        List<UsersRecord> numtelUsersRecordList = snapshot.data;
+                        List<UsersRecord>? numtelUsersRecordList = snapshot.data;
                         // Return an empty Container when the document does not exist.
-                        if (snapshot.data.isEmpty) {
+                        if (snapshot.data!.isEmpty) {
                           return Container();
                         }
                         final numtelUsersRecord =
-                            numtelUsersRecordList.isNotEmpty
+                            numtelUsersRecordList!.isNotEmpty
                                 ? numtelUsersRecordList.first
                                 : null;
                         return TextFormField(

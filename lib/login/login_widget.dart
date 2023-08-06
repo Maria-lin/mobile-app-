@@ -1,29 +1,32 @@
+import 'package:flutter/material.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 import 'package:smart_parking/home_page/home_page_widget.dart';
+
 import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../forgot_password/forgot_password_widget.dart';
 import '../main.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class LoginWidget extends StatefulWidget {
-  const LoginWidget({Key key}) : super(key: key);
+  const LoginWidget({Key? key}) : super(key: key);
 
   @override
   _LoginWidgetState createState() => _LoginWidgetState();
 }
 
 class _LoginWidgetState extends State<LoginWidget> {
-  TextEditingController emailAddressController;
-  TextEditingController passwordController;
-  bool passwordVisibility;
+  TextEditingController? emailAddressController;
+  TextEditingController? passwordController;
+  bool? passwordVisibility;
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  String _email, _password;
+  String? _email, _password;
   final auth = FirebaseAuth.instance;
   var _formkey = GlobalKey<FormState>();
 
@@ -168,7 +171,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                       alignment: AlignmentDirectional(0, 0),
                       child: TextFormField(
                         controller: passwordController,
-                        obscureText: !passwordVisibility,
+                        obscureText: !passwordVisibility!,
                         decoration: InputDecoration(
                           labelText: 'mot de passe',
                           labelStyle:
@@ -210,11 +213,11 @@ class _LoginWidgetState extends State<LoginWidget> {
                           ),
                           suffixIcon: InkWell(
                             onTap: () => setState(
-                              () => passwordVisibility = !passwordVisibility,
+                              () => passwordVisibility = !passwordVisibility!,
                             ),
                             focusNode: FocusNode(skipTraversal: true),
                             child: Icon(
-                              passwordVisibility
+                              passwordVisibility!
                                   ? Icons.visibility_outlined
                                   : Icons.visibility_off_outlined,
                               color: Color(0xFF95A1AC),
@@ -246,8 +249,8 @@ class _LoginWidgetState extends State<LoginWidget> {
 
                   final user = await signInWithEmail(
                     context,
-                    emailAddressController.text,
-                    passwordController.text,
+                    emailAddressController!.text,
+                    passwordController!.text,
                   );
                   if (user == null) {
                     return;

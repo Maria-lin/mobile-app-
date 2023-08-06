@@ -1,7 +1,9 @@
 
 import 'package:flutter/material.dart';
+
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+
 import 'package:smart_parking/flutter_flow/flutter_flow_theme.dart';
 
 
@@ -158,7 +160,7 @@ class  _MyPageStatefeedback extends State<rate> {
                                     fontWeight: FontWeight.normal,
                                   ),// Input Decoration// Input Decoration
                                   validator:(value){
-                                    if (value.length < 4) {
+                                    if (value!.length < 4) {
                                       return 'Enter at least 4 characters';}
                                     if(value.isEmpty ){
                                       return"Enter correct name" ;
@@ -190,8 +192,8 @@ class  _MyPageStatefeedback extends State<rate> {
 
                                         onPressed: () {
                                           // Validate returns true if the form is valid, or false otherwise.
-                                          if (_formKey.currentState.validate()) {
-                                            _formKey.currentState.save();
+                                          if (_formKey.currentState!.validate()) {
+                                            _formKey.currentState!.save();
 
                                             // If the form is valid, display a snackbar. In the real world,
                                             // you'd often call a server or save the information in a database.

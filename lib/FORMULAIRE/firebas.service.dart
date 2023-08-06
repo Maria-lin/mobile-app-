@@ -1,8 +1,8 @@
 
 import'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebaseAuth;
+import 'package:google_sign_in/google_sign_in.dart';
 class Firebaseservice{
 
 void insertData() async {
@@ -41,7 +41,7 @@ void addreclamation(name_collection ,name_subcollection, nb,  variable   ) {
     'timestamp': FieldValue.serverTimestamp(),
   };
 
-  final String uid= FirebaseAuth.instance.currentUser.uid;
+  final String uid= FirebaseAuth.instance.currentUser!.uid;
   var db =  FirebaseFirestore.instance.collection(name_collection);
   var studentsClassroomRef = db.doc( uid).collection(name_subcollection);
 
@@ -52,12 +52,12 @@ void addreclamation(name_collection ,name_subcollection, nb,  variable   ) {
 }
 
 
-Future<void> inputData() async {
-  final User user = await FirebaseAuth.instance.currentUser;
-  final String uid = user.uid.toString();//uid represente le id du
+Future<String> inputData() async {
+  final User? user = await FirebaseAuth.instance.currentUser;
+  final String uid =  user!.uid.toString();//uid represente le id du
 
   print("hello");
-  print(user.uid);return uid;
+  print(user.uid);return  uid;
 }
 
 void addreclamationajout(name_collection ,name_subcollection, nb,  variable   ) {
@@ -66,7 +66,7 @@ void addreclamationajout(name_collection ,name_subcollection, nb,  variable   ) 
     'timestamp': FieldValue.serverTimestamp(),
   };
 
-  final String uid= FirebaseAuth.instance.currentUser.uid;
+  final String uid= FirebaseAuth.instance.currentUser!.uid;
   var db =  FirebaseFirestore.instance.collection(name_collection);
   var studentsClassroomRef = db.doc( uid).collection(name_subcollection);
 

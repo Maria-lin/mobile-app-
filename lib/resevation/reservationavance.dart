@@ -1,12 +1,13 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter/services.dart';
-import 'package:intl/intl.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:smart_parking/flutter_flow/flutter_flow_theme.dart';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:intl/intl.dart';
+
+import 'package:smart_parking/flutter_flow/flutter_flow_theme.dart';
 import 'package:smart_parking/flutter_flow/flutter_flow_widgets.dart';
 
 import '../generateqecode.dart';
@@ -55,7 +56,7 @@ class _MyPageState extends State<MyPage> {
 
 
 
-  String _selectedLocation;
+  String? _selectedLocation;
   TextEditingController dateinput2 = TextEditingController();
   TextEditingController dateinput1= TextEditingController();
   String dropdownValue = 'One';
@@ -201,7 +202,7 @@ class _MyPageState extends State<MyPage> {
                                         ),
                                         readOnly: true,  //set it true, so that user will not able to edit text
                                         onTap: () async {
-                                          TimeOfDay pickedTime =  await showTimePicker(
+                                          TimeOfDay? pickedTime =  await showTimePicker(
                                             initialTime: TimeOfDay.now(),
                                             context: context,
                                           );
@@ -277,7 +278,7 @@ class _MyPageState extends State<MyPage> {
                 ),
               readOnly: true,  //set it true, so that user will not able to edit text
               onTap: () async {
-                TimeOfDay pickedTime =  await showTimePicker(
+                TimeOfDay? pickedTime =  await showTimePicker(
                   initialTime: TimeOfDay.now(),
                   context: context,
                 );
@@ -355,7 +356,7 @@ class _MyPageState extends State<MyPage> {
 
                                   readOnly: true,  //set it true, so that user will not able to edit text
                                   onTap: () async {
-                                    DateTime pickedDate = await showDatePicker(
+                                    DateTime? pickedDate = await showDatePicker(
                                         context: context, initialDate: DateTime.now(),
                                         firstDate: DateTime.now(), //DateTime.now() - not to allow to choose before today.
                                         lastDate: DateTime(2101)
@@ -390,8 +391,8 @@ class _MyPageState extends State<MyPage> {
 
                                       FFButtonWidget(
                                         onPressed: () {
-    if (_formKey.currentState.validate()) {
-    _formKey.currentState.save();
+    if (_formKey.currentState!.validate()) {
+    _formKey.currentState!.save();
 
     final String nom =dateinput1.text;
     final String heure =timeinput.text;
@@ -409,10 +410,10 @@ class _MyPageState extends State<MyPage> {
     );
 
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
-    Navigator.of(context).push(MaterialPageRoute(
-    //builder:(context)=>GeneratePage(value:message),
-    ));
-    if (_formKey.currentState.validate()) {
+    // Navigator.of(context).push(MaterialPageRoute(
+    // builder:(context)=>GeneratePage(value:message),
+    // ));
+    if (_formKey.currentState!.validate()) {
     // If the form is valid, display a snackbar. In the real world,
     // you'd often call a server or save the information in a database.
     ScaffoldMessenger.of(context).showSnackBar(

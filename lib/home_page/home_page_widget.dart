@@ -1,23 +1,21 @@
-import '../flutter_flow/flutter_flow_animations.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../backend/backend.dart';
-import '../auth/auth_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
+
 import 'package:cached_network_image/cached_network_image.dart';
-import '../flutter_flow/flutter_flow_icon_button.dart';
-import '../choisirUnParking/ChoisirUnParking.dart';
-import '../choisirUnParking/ChoisirParkingPage.dart';
-import '../map.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../auth/auth_util.dart';
+import '../backend/backend.dart';
+import '../choisirUnParking/ChoisirParkingPage.dart';
+import '../choisirUnParking/ChoisirUnParking.dart';
+import '../flutter_flow/flutter_flow_animations.dart';
+import '../flutter_flow/flutter_flow_icon_button.dart';
+import '../flutter_flow/flutter_flow_theme.dart';
+import '../flutter_flow/flutter_flow_util.dart';
+import '../map.dart';
+
 class HomePageWidget extends StatefulWidget {
-  const HomePageWidget({Key key}) : super(key: key);
+  const HomePageWidget({Key? key}) : super(key: key);
 
   @override
   _HomePageWidgetState createState() => _HomePageWidgetState();
@@ -130,7 +128,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             ),
                             child: CachedNetworkImage(
                               imageUrl: valueOrDefault<String>(
-                                profilePageUsersRecord.photoUrl,
+                                profilePageUsersRecord!.photoUrl,
                                 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/e-drive-app-9va2oh/assets/ety73spsyaeb/avatar.png',
                               ),
                               fit: BoxFit.fitWidth,
@@ -377,7 +375,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                 ),
               ), /////
             ],
-          ).animated([animationsMap['columnOnPageLoadAnimation']]),
+          ).animated([animationsMap['columnOnPageLoadAnimation']!]),
         );
       },
     );

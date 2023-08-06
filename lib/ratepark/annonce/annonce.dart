@@ -9,7 +9,7 @@ import 'package:smart_parking/ratepark/annonce/gestionannonce.dart';
 
 
 class annonceWidget extends StatefulWidget {
-  const annonceWidget ({Key key}) : super(key: key);
+  const annonceWidget ({Key? key}) : super(key: key);
 
   @override
   _annonceWidgetState createState() => _annonceWidgetState();

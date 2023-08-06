@@ -1,7 +1,9 @@
+import 'package:flutter/material.dart';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
 import 'package:smart_parking/component/sideMenu.dart';
 import 'package:smart_parking/config/size_config.dart';
 import 'package:smart_parking/flutter_flow/flutter_flow_theme.dart';
@@ -10,7 +12,7 @@ import 'package:smart_parking/style/style.dart';
 
 class Gestionannonce extends StatefulWidget {
 
-  const Gestionannonce({Key key}) : super(key: key);
+  const Gestionannonce({Key? key}) : super(key: key);
 
 
   @override
@@ -18,7 +20,7 @@ class Gestionannonce extends StatefulWidget {
 }
 
 class _Gestionannoncetate extends State<Gestionannonce> {
-  String _selectedLocation;
+  String? _selectedLocation;
   TextEditingController dateinput1= TextEditingController();
   List<String> _locations = ['parking a ', 'parking b '];
   @override
@@ -29,19 +31,19 @@ class _Gestionannoncetate extends State<Gestionannonce> {
   final user=FirebaseAuth.instance.currentUser;
 
   // text fields' controllers
-  TextEditingController textController1;
-  TextEditingController numtelController;
+  TextEditingController? textController1;
+  TextEditingController? numtelController;
 
   final CollectionReference _declaration_objet_perdu =
   FirebaseFirestore.instance.collection('declaration_objet_perdu');
   void dispose(){
-    textController1.dispose();
-    numtelController.dispose();
+    textController1?.dispose();
+    numtelController?.dispose();
     _selectedLocation;
     dateinput1.dispose();
     super.dispose();
   }
-  Future<void> _create([DocumentSnapshot _declaration_objet_perdu]) async {
+  Future<void> _create([DocumentSnapshot? _declaration_objet_perdu]) async {
 
     await showModalBottomSheet(
         isScrollControlled: true,
@@ -244,7 +246,7 @@ class _Gestionannoncetate extends State<Gestionannonce> {
                     ),
                     readOnly: true,  //set it true, so that user will not able to edit text
                     onTap: () async {
-                      DateTime pickedDate = await showDatePicker(
+                      DateTime? pickedDate = await showDatePicker(
                           context: context, initialDate: DateTime.now(),
                           firstDate: DateTime(2000), //DateTime.now() - not to allow to choose before today.
                           lastDate: DateTime(2101)
@@ -328,7 +330,7 @@ class _Gestionannoncetate extends State<Gestionannonce> {
                       const SnackBar(content: Text('Processing Data')),
                     );
 
-          Map<String,dynamic>data={"commentaire ": textController1.text,"parking ": _selectedLocation,"date de perte": dateinput1.text,"numéro de tel ": numtelController.text
+          Map<String,dynamic>data={"commentaire ": textController1?.text,"parking ": _selectedLocation,"date de perte": dateinput1.text,"numéro de tel ": numtelController?.text
           };
           FirebaseFirestore.instance.collection("declaration_objet_perdu").add(data);
 
@@ -365,11 +367,11 @@ class _Gestionannoncetate extends State<Gestionannonce> {
 
         });
   }
-  Future<void> _update([DocumentSnapshot documentSnapshot]) async {
+  Future<void> _update([DocumentSnapshot? documentSnapshot]) async {
     if (documentSnapshot != null) {
 
-    textController1.text = documentSnapshot['commentaire'];
-    numtelController.text=documentSnapshot['numéro tel'];
+    textController1?.text = documentSnapshot['commentaire'];
+    numtelController?.text=documentSnapshot['numéro tel'];
     _selectedLocation=documentSnapshot['parking'];
     dateinput1.text=documentSnapshot['date de perte'];
 
@@ -563,7 +565,7 @@ class _Gestionannoncetate extends State<Gestionannonce> {
                     ),
                     readOnly: true,  //set it true, so that user will not able to edit text
                     onTap: () async {
-                      DateTime pickedDate = await showDatePicker(
+                      DateTime? pickedDate = await showDatePicker(
                           context: context, initialDate: DateTime.now(),
                           firstDate: DateTime.now() ,
                           lastDate: DateTime(2101)
@@ -639,6 +641,7 @@ class _Gestionannoncetate extends State<Gestionannonce> {
                   ),
                 ),
                 ElevatedButton(
+                  onPressed: (){},
 
                   child: const Text( 'Update'),
               /*    onPressed: () async {
@@ -716,10 +719,10 @@ class _Gestionannoncetate extends State<Gestionannonce> {
                 builder: (context, AsyncSnapshot<QuerySnapshot> streamSnapshot) {
                   if (streamSnapshot.hasData) {
                     return ListView.builder(
-                      itemCount: streamSnapshot.data.docs.length,
+                      itemCount: streamSnapshot.data!.docs.length,
                       itemBuilder: (context, index) {
                         final DocumentSnapshot documentSnapshot =
-                        streamSnapshot.data.docs[index];
+                        streamSnapshot.data!.docs[index];
                         return Row(
 
                           children: [

@@ -1,14 +1,16 @@
+import 'package:flutter/material.dart';
+
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 import '../components/payment_modal_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../past_payment/past_payment_widget.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class PaymentsWidget extends StatefulWidget {
-  const PaymentsWidget({Key key}) : super(key: key);
+  const PaymentsWidget({Key? key}) : super(key: key);
 
   @override
   _PaymentsWidgetState createState() => _PaymentsWidgetState();

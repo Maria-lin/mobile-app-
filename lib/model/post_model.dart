@@ -1,20 +1,21 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class PostModel {
-  String docid;
-  String imageURL;
-  String message;
-  String title;
-  Timestamp timestamp;
-  int likes;
+ final String docid;
+final  String imageURL;
+final  String message;
+ final String title;
+ final Timestamp timestamp;
+ final int likes;
 
   PostModel(
-      {this.docid,
-      this.imageURL,
-      this.message,
-      this.title,
-      this.timestamp,
-      this.likes});
+      {
+      required  this.docid,
+  required    this.imageURL,
+   required   this.message,
+    required  this.title,
+    required  this.timestamp,
+    required  this.likes});
 
   factory PostModel.fromJSON(Map<String, dynamic> map) {
     return PostModel(

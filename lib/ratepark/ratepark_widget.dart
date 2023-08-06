@@ -1,21 +1,26 @@
+import 'package:flutter/material.dart';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:intl/intl.dart';
+
+import 'package:smart_parking/component/sideMenu.dart';
+import 'package:smart_parking/config/size_config.dart';
+import 'package:smart_parking/flutter_flow/flutter_flow_theme.dart';
+import 'package:smart_parking/flutter_flow/flutter_flow_widgets.dart';
+import 'package:smart_parking/style/style.dart';
+
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_radio_button.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-
 class RateparkWidget extends StatefulWidget {
-  const RateparkWidget({Key key}) : super(key: key);
+  const RateparkWidget({Key? key}) : super(key: key);
 
   @override
   _RateparkWidgetState createState() => _RateparkWidgetState();
 }
 
 class _RateparkWidgetState extends State<RateparkWidget> {
-  String catagoryFiltersValue;
+  String? catagoryFiltersValue;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override

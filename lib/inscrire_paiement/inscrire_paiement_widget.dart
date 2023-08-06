@@ -1,24 +1,25 @@
+import 'package:flutter/material.dart';
+
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-
 import '../main.dart';
 
 class InscrirePaiementWidget extends StatefulWidget {
-  const InscrirePaiementWidget({Key key}) : super(key: key);
+  const InscrirePaiementWidget({Key? key}) : super(key: key);
 
   @override
   _InscrirePaiementWidgetState createState() => _InscrirePaiementWidgetState();
 }
 
 class _InscrirePaiementWidgetState extends State<InscrirePaiementWidget> {
-  TextEditingController numCarteController;
-  TextEditingController mMYYController;
-  TextEditingController cVCController;
-  TextEditingController nomTController;
+  TextEditingController? numCarteController;
+  TextEditingController? mMYYController;
+  TextEditingController? cVCController;
+  TextEditingController? nomTController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -32,10 +33,10 @@ class _InscrirePaiementWidgetState extends State<InscrirePaiementWidget> {
 
   @override
   void dispose() {
-    numCarteController.dispose();
-    mMYYController.dispose();
-    cVCController.dispose();
-    nomTController.dispose();
+    numCarteController?.dispose();
+    mMYYController?.dispose();
+    cVCController?.dispose();
+    nomTController?.dispose();
     super.dispose();
   }
 

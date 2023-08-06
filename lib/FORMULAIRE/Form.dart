@@ -1,15 +1,19 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
-import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
+
 import 'package:smart_parking/FORMULAIRE/firebas.service.dart';
 import 'package:smart_parking/FORMULAIRE/pop_up.dart';
+
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+
 import 'BRAVO.dart';
 
 
@@ -38,7 +42,7 @@ String id ='';
 
 
 
-  String _selectedLocation;
+  String ? _selectedLocation;
   TextEditingController dateinput2 = TextEditingController();
   TextEditingController dateinput1= TextEditingController();
   String dropdownValue = 'One';
@@ -301,7 +305,7 @@ String id ='';
 
                             readOnly: true,  //set it true, so that user will not able to edit text
                             onTap: () async {
-                              DateTime pickedDate = await showDatePicker(
+                              DateTime? pickedDate = await showDatePicker(
                                   context: context, initialDate: DateTime.now(),
                                   firstDate: DateTime(2000), //DateTime.now() - not to allow to choose before today.
                                   lastDate: DateTime(2101)
@@ -613,8 +617,8 @@ String id ='';
                                   padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
-                                      if (_formKey.currentState.validate()) {
-                                        _formKey.currentState.save();}
+                                      if (_formKey.currentState!.validate()) {
+                                        _formKey.currentState!.save();}
 
                                       if (textController1.text.trim() != null
                                           &&_selectedLocation!= null

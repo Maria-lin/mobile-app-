@@ -1,3 +1,9 @@
+import 'package:flutter/material.dart';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 import 'package:smart_parking/FORMULAIRE/pop_up.dart';
 
 import '../auth/auth_util.dart';
@@ -8,10 +14,6 @@ import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../flutter_flow/upload_media.dart';
 import '../inscrire_paiement/inscrire_paiement_widget.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'BRAVO.dart';
 
@@ -25,13 +27,13 @@ class forom2 extends StatefulWidget {
 class _objettrouver extends State<forom2> {
   String uploadedFileUrl =
       'https://images.app.goo.gl/Go3HBa3KSeSjKh9C9.png';
-  TextEditingController textController1;
-  TextEditingController numtelController;
-  TextEditingController permisIDController;
+ late  TextEditingController textController1;
+  late TextEditingController numtelController;
+ late  TextEditingController permisIDController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  String _selectedLocation;
+  String? _selectedLocation;
   TextEditingController dateinput1= TextEditingController();
-  int nb_rec;
+  int? nb_rec;
   @override
   void initState() {
     super.initState();
@@ -311,7 +313,7 @@ class _objettrouver extends State<forom2> {
                     ),
                     readOnly: true,  //set it true, so that user will not able to edit text
                     onTap: () async {
-                      DateTime pickedDate = await showDatePicker(
+                      DateTime? pickedDate = await showDatePicker(
                           context: context, initialDate: DateTime.now(),
                           firstDate: DateTime(2000), //DateTime.now() - not to allow to choose before today.
                           lastDate: DateTime(2101)
@@ -446,7 +448,7 @@ class _objettrouver extends State<forom2> {
                       maxLines: 5,
                       maxLength: 4096,
                       textInputAction: TextInputAction.done,
-                      validator: (String text) {
+                      validator: (String? text) {
                         if (text == null || text.isEmpty) {
                           return 'Please enter a value';
                         }
@@ -459,7 +461,7 @@ class _objettrouver extends State<forom2> {
                     padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                     child: FFButtonWidget(
                       onPressed: () async {
-                         nb_rec = nb_rec+1;
+                         nb_rec = nb_rec!+1;
                         final usersUpdateData = createUsersRecordData(
                           displayName: textController1.text,
 
@@ -467,7 +469,7 @@ class _objettrouver extends State<forom2> {
                           permisID: permisIDController.text,
                           photoUrl: uploadedFileUrl,
                         );
-                        await createUserUsersRecord.reference
+                        await createUserUsersRecord?.reference
                             .update(usersUpdateData);
                         await Navigator.push(
                           context,
